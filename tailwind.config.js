@@ -179,7 +179,7 @@ module.exports = {
       200: '2',
     },
     container: {
-      padding: '2rem',
+      padding: '16rem',
      
     },
     content: {
