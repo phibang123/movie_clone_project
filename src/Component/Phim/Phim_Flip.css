@@ -103,6 +103,7 @@
 	-webkit-box-orient: vertical;
 }
 .pay button {
+	width: 100%;
 	outline: none;
 	position: absolute;
 	visibility: hidden;

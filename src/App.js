@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Router, Switch } from 'react-router';
 
 import Contact from './Pages/Contact/Contact';
+import Detail from './Pages/Detail/Detail';
 import Home from './Pages/Home/Home';
 import { HomeTemplate } from './Templates/HomeTemplate/HomeTemplate';
 import Login from './Pages/Login/Login';
@@ -21,6 +22,7 @@ function App()
         <HomeTemplate path="/contact" exact  Component={Contact}></HomeTemplate>
         <HomeTemplate path="/home" exact  Component={Home}></HomeTemplate>
         <HomeTemplate path="/news" exact Component={News}></HomeTemplate>
+        <HomeTemplate path="/detail/:id" exact Component={Detail}></HomeTemplate>
         <Route path="/login" exact Component={Login}></Route>
         <Route path="/register" exact Component={Register}></Route>
         <HomeTemplate path="/" exact  Component={Home}></HomeTemplate>

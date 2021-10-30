@@ -19,7 +19,7 @@ export const HomeTemplate = (
 					<Fragment>
 						<Header {...propsRoute} />
         
-            <HomeCarousel></HomeCarousel>
+           
             <Component {...propsRoute}></Component>
             <Footer></Footer>
 					</Fragment>

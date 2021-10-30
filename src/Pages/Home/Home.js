@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import HomeCarousel from "../../Templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel";
 import HomeMenu from "./HomeMenu/HomeMenu";
 import MultipleRowSlcik from "../../Component/RSlick/MultipleRowSlcik";
 import MultipleRowSlick from '../../Component/RSlick/MultipleRowSlcik'
@@ -17,9 +18,11 @@ export default function Home() {
     dispatch(layDanhSachHeThongRapAction())
   },[] )
   const heThongMemo = useMemo(() => heThongRapChieu,[heThongRapChieu])
-	return (
+  return (
+    <>
+       <HomeCarousel></HomeCarousel>
     <div className="container">
-  
+   
 			<section className="text-gray-600">
         <div className=" px-5 py-20 mx-auto h-full">
           <MultipleRowSlcik arrPhim={arrPhim}></MultipleRowSlcik>
@@ -34,5 +37,6 @@ export default function Home() {
         <HomeMenu heThongRapChieu={heThongMemo}></HomeMenu>
         </div>
 		</div>
+   </>
 	);
 }

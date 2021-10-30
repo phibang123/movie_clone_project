@@ -1,6 +1,7 @@
 import "./Phim_Flip.css";
 
 import Item from "antd/lib/list/Item";
+import { NavLink } from "react-router-dom";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
 import React from "react";
@@ -65,9 +66,12 @@ export default function Phim_Flip(props) {
 							</div>
 						</div>
 						<div className="pay">
+							<NavLink  to={`/detail/${phim.maPhim}`}>
 							<button className="rounded w-full text-white py-3 font-medium tracking-wide">
+								
 								MUA VÉ
 							</button>
+							</NavLink>
 						</div>
 					</div>
          

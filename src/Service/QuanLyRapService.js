@@ -11,6 +11,10 @@ class QuanLyRapService extends baseService
   {
     return this.get(`QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`)
   }
+  layDanhThongTinLichChieuPhim = (maPhim) =>
+  {
+    return this.get(`QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`)
+  }
 
 }
 
