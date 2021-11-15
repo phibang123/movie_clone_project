@@ -1,14 +1,16 @@
-import Footer from "./Layout/Footer/Footer";
-import { Fragment } from "react";
-import Header from "./Layout/Header/Header";
-import HomeCarousel from "./Layout/HomeCarousel/HomeCarousel";
-import { Route } from "react-router";
+import { Redirect, Route } from "react-router";
 
-const HomeTemplate = (
+import { Fragment } from "react";
+import { USER_LOGIN } from "../../Util/settings/config";
+
+const CheckoutTemplate = (
 	props //props là : path exact và component
 ) => {
 	const { Component, ...restProps } = props; //lấy componen ra còn lại là restProps
-
+	if (!localStorage.getItem(USER_LOGIN))
+  {
+    return <Redirect to="/login" ></Redirect>
+  }
 	return (
 		<Route
 			{...restProps}
@@ -17,15 +19,11 @@ const HomeTemplate = (
 			) => {
 				return (
 					<Fragment>
-						<Header {...propsRoute} />
-        
-           
-            <Component {...propsRoute}></Component>
-            <Footer></Footer>
+					   <Component {...propsRoute}></Component>
 					</Fragment>
 				);
 			}}
 		></Route>
 	);
 };
-export default HomeTemplate
+export default CheckoutTemplate

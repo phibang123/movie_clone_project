@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 
 import {CarouselReducer} from './reducers/CarouselReducer'
+import { QuanLyNguoiDungReducer } from './reducers/QuanLyNguoiDungReducer'
 import { QuanLyPhimReducer } from './reducers/QuanLyPhimReducer'
 import { QuanLyRapReducer } from './reducers/QuanLyRapReducer'
 import reduxThunk from 'redux-thunk'
@@ -9,7 +10,8 @@ import thunk from 'redux-thunk'
 const rootReducer = combineReducers({
   CarouselReducer: CarouselReducer,
   QuanLyPhimReducer: QuanLyPhimReducer,
-  QuanLyRapReducer: QuanLyRapReducer
+  QuanLyRapReducer: QuanLyRapReducer,
+  QuanLyNguoiDungReducer: QuanLyNguoiDungReducer
 })
 
 
