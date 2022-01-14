@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import Header from "./Layout/Header/Header";
 import HomeCarousel from "./Layout/HomeCarousel/HomeCarousel";
 import { Route } from "react-router";
+import { ToastContainer } from "react-toastify";
 
 const HomeTemplate = (
 	props //props là : path exact và component
@@ -21,7 +22,8 @@ const HomeTemplate = (
         
            
             <Component {...propsRoute}></Component>
-            <Footer></Footer>
+						<Footer></Footer>
+						<ToastContainer />
 					</Fragment>
 				);
 			}}

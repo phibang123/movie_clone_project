@@ -3,7 +3,6 @@ import "./Phim_Flip.css";
 import Item from "antd/lib/list/Item";
 import { NavLink } from "react-router-dom";
 import { PlayCircleOutlined } from "@ant-design/icons";
-import { Rate } from "antd";
 import React from "react";
 
 export default function Phim_Flip(props) {
@@ -15,7 +14,7 @@ export default function Phim_Flip(props) {
 					<div className="flip-card-front">
 						<img
 							src={phim.hinhAnh}
-							alt="Avatar"
+							alt="Avatar"	
 							style={{ width: 300, height: 320, borderRadius: "4px" }}
 							onError={(e) => {
 								e.target.onerror = null;
@@ -23,15 +22,10 @@ export default function Phim_Flip(props) {
 							}}
 						/>
 						<div className="show-play-trailer">
-							<button
-								className="play-trailer"
-								
-								data-src={phim.trailer}
-							>
-								<img
-									src="https://tix.vn/app/assets/img/icons/play-video.png"
-									alt="play-trailer"
-								></img>
+							<button className="play-trailer" data-src={phim.trailer}>
+								<span>
+									<PlayCircleOutlined className="text-6xl" style={{color: "#FFFFFF"}}></PlayCircleOutlined>
+								</span>
 							</button>
 						</div>
 					</div>
@@ -66,15 +60,14 @@ export default function Phim_Flip(props) {
 							</div>
 						</div>
 						<div className="pay">
-							<NavLink  to={`/detail/${phim.maPhim}`}>
-							<button className="rounded w-full text-white py-3 font-medium tracking-wide">
-								
-								MUA VÉ
-							</button>
+							<NavLink to={`/detail/${phim.maPhim}`}>
+								<button className="rounded w-full text-white py-3 font-medium tracking-wide">
+									MUA VÉ
+								</button>
 							</NavLink>
 						</div>
 					</div>
-         
+
 					{/* <div
 					className="flip-card-back "
 					style={{ position: "relative", backgroundColor: "rgba(0,0,0,.9)", height: 300}}

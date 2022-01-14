@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Route } from "react-router";
+import { ToastContainer } from "react-toastify";
 
 const UserTemplate = (
 	props //props là : path exact và component
@@ -233,6 +234,7 @@ const UserTemplate = (
 								</div>
 							</div>
 						</div>
+						<ToastContainer />
 					</Fragment>
 				);
 			}}
