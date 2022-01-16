@@ -4,12 +4,13 @@ import Header from "./Layout/Header/Header";
 import HomeCarousel from "./Layout/HomeCarousel/HomeCarousel";
 import { Route } from "react-router";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 const HomeTemplate = (
 	props //props là : path exact và component
 ) => {
 	const { Component, ...restProps } = props; //lấy componen ra còn lại là restProps
-
+  
 	return (
 		<Route
 			{...restProps}
@@ -31,3 +32,4 @@ const HomeTemplate = (
 	);
 };
 export default HomeTemplate
+

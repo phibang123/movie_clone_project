@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 
-import {CarouselReducer} from './reducers/CarouselReducer'
+import { CarouselReducer } from './reducers/CarouselReducer'
+import { QuanLyDatVeReducer } from './reducers/QuanLyDatVeReducer'
 import { QuanLyNguoiDungReducer } from './reducers/QuanLyNguoiDungReducer'
 import { QuanLyPhimReducer } from './reducers/QuanLyPhimReducer'
 import { QuanLyRapReducer } from './reducers/QuanLyRapReducer'
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   CarouselReducer: CarouselReducer,
   QuanLyPhimReducer: QuanLyPhimReducer,
   QuanLyRapReducer: QuanLyRapReducer,
-  QuanLyNguoiDungReducer: QuanLyNguoiDungReducer
+  QuanLyNguoiDungReducer: QuanLyNguoiDungReducer,
+  QuanLyDatVeReducer: QuanLyDatVeReducer
 })
 
 

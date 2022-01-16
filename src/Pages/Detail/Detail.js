@@ -19,7 +19,9 @@ export default function Detail(props) {
 	const [tabPosition, setState] = useState("left");
 
 	const dispatch = useDispatch();
-
+  //
+  window.scrollTo(0, 0);
+  //
 	useEffect(() => {
 		//lấy thông tin param từ url
 		let { id } = props.match.params;

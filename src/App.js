@@ -13,10 +13,10 @@ import News from "./Pages/News/News";
 import Register from "./Pages/Register/Register";
 import UserTemplate from "./Templates/UserTemplate/UserTemplate";
 import { createBrowserHistory } from "history";
+import ScrollToTop from "./Util/settings/ScrollToTop";
 
-const CheckoutTemplateLazy = lazy(
-	() =>
-		import("./Templates/CheckoutTemplate/CheckoutTemplate")
+const CheckoutTemplateLazy = lazy(() =>
+	import("./Templates/CheckoutTemplate/CheckoutTemplate")
 );
 const HomeTemplateLazy = lazy(() =>
 	import("./Templates/HomeTemplate/HomeTemplate")
@@ -25,40 +25,50 @@ export const history = createBrowserHistory();
 function App() {
 	return (
 		<Router history={history}>
-			<Switch>
-				<HomeTemplate path="/contact" exact Component={Contact}></HomeTemplate>
-				<HomeTemplate path="/home" exact Component={Home}></HomeTemplate>
-
-				<HomeTemplate path="/news" exact Component={News}></HomeTemplate>
-				<HomeTemplate
-					path="/detail/:id"
-					exact
-					Component={Detail}
-				></HomeTemplate>
-				<UserTemplate path="/login" exact Component={Login}></UserTemplate>
-				{/* <Route path="/login" exact Component={Login}></Route>
+			<ScrollToTop>
+				<Switch>
+					<HomeTemplate
+						path="/contact"
+						exact
+						Component={Contact}
+					></HomeTemplate>
+					<HomeTemplate path="/home" exact Component={Home}></HomeTemplate>
+          
+					<HomeTemplate path="/news" exact Component={News}></HomeTemplate>
+					<HomeTemplate
+						path="/detail/:id"
+						exact
+						Component={Detail}
+					></HomeTemplate>
+					<UserTemplate path="/login" exact Component={Login}></UserTemplate>
+					{/* <Route path="/login" exact Component={Login}></Route>
         <Route path="/register" exact Component={Register}></Route> */}
 
-				<Suspense
-					fallback={
-						<>
-							<h1>LOADING....</h1>
-							<h1>LOADING....</h1>
-							<h1>LOADING....</h1>
-							<h1>LOADING....</h1>
-							<h1>LOADING....</h1>
-						</>
-					}
-				>
-					<CheckoutTemplateLazy
-						path="/checkout/:id"
-						exact
-						Component={Checkout}
-					></CheckoutTemplateLazy>
-					<HomeTemplateLazy path="/" exact Component={Home}></HomeTemplateLazy>
-				</Suspense>
-				<News></News>
-			</Switch>
+					<Suspense
+						fallback={
+							<>
+								<h1>LOADING....</h1>
+								<h1>LOADING....</h1>
+								<h1>LOADING....</h1>
+								<h1>LOADING....</h1>
+								<h1>LOADING....</h1>
+							</>
+						}
+					>
+						<CheckoutTemplateLazy
+							path="/checkout/:id"
+							exact
+							Component={Checkout}
+						></CheckoutTemplateLazy>
+						<HomeTemplateLazy
+							path="/"
+							exact
+							Component={Home}
+						></HomeTemplateLazy>
+					</Suspense>
+					<News></News>
+				</Switch>
+			</ScrollToTop>
 		</Router>
 	);
 }
