@@ -1,4 +1,8 @@
-import { SET_CHI_TIET_PHONG_VE } from "./Types/QuanLyDatVeType";
+import { DAT_VE_HOAN_TAT, SET_CHI_TIET_PHONG_VE } from "./Types/QuanLyDatVeType";
+import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
+import { toastError, toastSuccess } from "../../Util/Toast/toast";
+
+import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 import { quanLyDatVeSevice } from "../../Service/QuanLyDatVeService"
 
 export const layChiTietPhongVeAction = (maLichChieu) =>
@@ -17,6 +21,25 @@ export const layChiTietPhongVeAction = (maLichChieu) =>
       }
     } catch (error) {
       console.log(error.reponese?.data)
+    }
+  }
+}
+
+export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
+  return async dispatch =>
+  {
+    try
+    {
+      dispatch(displayLoadingAction)
+      await quanLyDatVeSevice.datVe(thongTinDatVe);
+      await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu))
+      await dispatch({ type: DAT_VE_HOAN_TAT })
+      
+      dispatch(hideLoadingAction)
+      toastSuccess("Đặt vé thành công");
+    } catch (error) {
+      dispatch(hideLoadingAction)
+      toastError("lỗi")
     }
   }
 }

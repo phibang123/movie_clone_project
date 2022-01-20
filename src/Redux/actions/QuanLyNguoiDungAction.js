@@ -1,6 +1,6 @@
+import { DANG_NHAP_ACTION, LAY_THONG_TIN_NGUOI_DUNG } from "./Types/QuanLyNguoiDungType";
 import { toastError, toastSuccess } from "../../Util/Toast/toast";
 
-import { DANG_NHAP_ACTION } from "./Types/QuanLyNguoiDung";
 import { history } from "../../App";
 import { quanLyNguoiDung } from "../../Service/QuanLyNguoiDung";
 
@@ -27,3 +27,22 @@ export const dangNhapAction = (thongTinDangNhap) => {
 		}
 	};
 };
+
+export const layThongTinNguoiDungAction = () =>
+{
+	return async (dispatch) =>
+	{
+		try {
+			const result = await quanLyNguoiDung.layThongTinNguoiDung();
+			if (result.status === 200)
+			{
+				dispatch({
+					type: LAY_THONG_TIN_NGUOI_DUNG,
+					thongTinNguoiDung: result.data.content
+				})
+			}
+		} catch (error) {
+			
+		}
+	}
+}

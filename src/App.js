@@ -8,12 +8,12 @@ import Contact from "./Pages/Contact/Contact";
 import Detail from "./Pages/Detail/Detail";
 import Home from "./Pages/Home/Home";
 import HomeTemplate from "./Templates/HomeTemplate/HomeTemplate";
+import Loading from "./Component/Loading/Loading";
 import Login from "./Pages/Login/Login";
 import News from "./Pages/News/News";
 import Register from "./Pages/Register/Register";
 import UserTemplate from "./Templates/UserTemplate/UserTemplate";
 import { createBrowserHistory } from "history";
-import ScrollToTop from "./Util/settings/ScrollToTop";
 
 const CheckoutTemplateLazy = lazy(() =>
 	import("./Templates/CheckoutTemplate/CheckoutTemplate")
@@ -24,8 +24,9 @@ const HomeTemplateLazy = lazy(() =>
 export const history = createBrowserHistory();
 function App() {
 	return (
+		
 		<Router history={history}>
-			<ScrollToTop>
+		   <Loading></Loading>
 				<Switch>
 					<HomeTemplate
 						path="/contact"
@@ -68,7 +69,7 @@ function App() {
 					</Suspense>
 					<News></News>
 				</Switch>
-			</ScrollToTop>
+		
 		</Router>
 	);
 }

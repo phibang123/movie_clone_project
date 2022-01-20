@@ -1,4 +1,5 @@
 import { GROUPID } from "../Util/settings/config";
+import { ThongTinDatVe } from "../_core/models/ThongTinDatVe";
 import { baseService } from "./baseService";
 
 class QuanLyDatVeService extends baseService
@@ -10,6 +11,10 @@ class QuanLyDatVeService extends baseService
   layChiTietPhongVe = (maLichChieu) => //mã lịch chiếu lấy thông tin lịch chuiếu 
   {
     return this.get(`QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`)
+  }
+  datVe = (thongTinDatVe = new ThongTinDatVe()) =>
+  {
+    return this.post(`QuanLyDatVe/DatVe`,thongTinDatVe)
   }
 }
 
